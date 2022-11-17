@@ -3,27 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/color4"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/setTime"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:textSize="24sp"
         android:text="Set Time"
-
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/setAlarm"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:textSize="24sp"
         android:text="Set Alarm"
         android:textAllCaps="false"
@@ -31,10 +31,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setTime" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/cancelAlarm"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:textSize="24sp"
         android:textAllCaps="false"
         android:text="Cancel Alarm"
@@ -50,9 +50,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="AlarmTime"
-        android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
+        android:textColor="@color/color6"
         android:textAllCaps="true"
         app:layout_constraintBottom_toTopOf="@+id/setTime"
         app:layout_constraintEnd_toEndOf="parent"
