@@ -3,11 +3,18 @@ package com.c1ph3r.alarm_manager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.c1ph3r.alarm_manager.databinding.ActivityMainBinding;
 import com.google.android.material.timepicker.MaterialTimePicker;
@@ -18,6 +25,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity  {
     private ActivityMainBinding MAIN;
     MaterialTimePicker timePicker;
+    Calendar c;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +43,25 @@ public class MainActivity extends AppCompatActivity  {
             });
         });
 
+        MAIN.setAlarm.setOnClickListener(onClickSetAlarm -> {
+            if (c != null){
+                Intent intent = new Intent(MainActivity.this, Alarm.class);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0,intent, PendingIntent.FLAG_IMMUTABLE);
+                AlarmManager alarmManager = (AlarmManager) MainActivity.this.getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);
+            }else
+                Toast.makeText(this, "Set the Time first!", Toast.LENGTH_SHORT).show();
+        });
+
+        MAIN.cancelAlarm.setOnClickListener(OnClickCancel ->{
+
+        });
+
         
     }
 
     private void updateTime() {
-        Calendar c = Calendar.getInstance();
+        c = Calendar.getInstance();
         c.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
         c.set(Calendar.MINUTE, timePicker.getMinute());
         c.set(Calendar.SECOND, 0);
