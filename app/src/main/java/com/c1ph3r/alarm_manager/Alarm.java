@@ -1,10 +1,5 @@
 package com.c1ph3r.alarm_manager;
 
-import android.annotation.SuppressLint;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -16,21 +11,24 @@ import androidx.core.app.NotificationManagerCompat;
 public class Alarm extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+        // Intent to Open activity when broadcast received.
         Intent newIntent = new Intent(context, AlarmScreen.class);
-        newIntent.putExtra("Intent", intent);
+        // Setting the intent as a new task.
         newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,newIntent, PendingIntent.FLAG_IMMUTABLE);
+        // When broadcast receive start the activity.
         context.startActivity(newIntent);
 
-        NotificationCompat.Builder Notification = new NotificationCompat.Builder(context, "Alarm")
-                .setContentTitle("My Alarm")
-                .setContentText("Alarm is Ringing ...")
+        // Creating New Notification when Broadcast is Received.
+        NotificationCompat.Builder Notification = new NotificationCompat.Builder(context, context.getString(R.string.Alarm))
+                .setContentTitle(context.getString(R.string.MyAlarm_text))
+                .setContentText(context.getString(R.string.Ringing_Text))
                 .setSmallIcon(R.drawable.alarm_ic)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true)
                 .setWhen(System.currentTimeMillis())
                 .setDefaults(NotificationCompat.DEFAULT_ALL);
 
+        // Sending the Notification to the user.
         NotificationManagerCompat sendNotification = NotificationManagerCompat.from(context);
         sendNotification.notify(1 , Notification.build());
 

@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Alarm_Manager</string>
+    <string name="success_Text">alarm set successfully.</string>
+    <string name="AlertTheUser_Text">Set the Time first!</string>
+    <string name="Canceled_Text">alarm canceled successfully.</string>
+    <string name="AlertTheUser2_Text">Set an alarm first!</string>
+    <string name="SetAlarmTime_Text">Set Alarm Time</string>
+    <string name="timePicker">timePicker</string>
+    <string name="Alarm">Alarm</string>
+    <string name="MyAlarm">MY_ALARM</string>
+    <string name="set_time_text">Set Time</string>
+    <string name="set_alarm_text">Set Alarm</string>
+    <string name="cancel_alarm_text">Cancel Alarm</string>
+    <string name="alarmTime_text">AlarmTime</string>
+    <string name="stop_alarm_text">stop Alarm</string>
+    <string name="MyAlarm_text">My Alarm</string>
+    <string name="Ringing_Text">Alarm is Ringing …</string>
 </resources>

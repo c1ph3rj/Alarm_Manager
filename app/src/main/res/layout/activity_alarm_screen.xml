@@ -8,42 +8,41 @@
     tools:context=".AlarmScreen">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:lottie_rawRes="@raw/alarm_anim"
-        app:lottie_loop="true"
-        app:lottie_autoPlay="true"
-        app:layout_constraintBottom_toTopOf="@+id/AlarmTime"
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="@dimen/W_300dp"
+        android:layout_height="@dimen/H_300dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/alarm_anim" />
 
-    <TextView
-        android:id="@+id/AlarmTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/color6"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/stopAlarm"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="stop Alarm"
+        android:layout_width="@dimen/W_300dp"
+        android:layout_height="@dimen/H_60dp"
+        android:layout_marginBottom="@dimen/M_28dp"
+        android:text="@string/stop_alarm_text"
         android:textAllCaps="false"
-        android:textSize="24sp"
+        android:textSize="@dimen/TS_24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextClock
+        android:layout_width="@dimen/W_300dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/TS_40sp"
+        android:textAlignment="center"
+        android:textColor="@color/color6"
+        app:layout_constraintBottom_toTopOf="@+id/stopAlarm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AlarmTime"
-        app:layout_constraintVertical_bias="0.644" />
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView"
+        app:layout_constraintVertical_bias="0.202" />
 </androidx.constraintlayout.widget.ConstraintLayout>
